@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://ci71bd3wyxm7l"]
+
+[ext_resource type="Script" uid="uid://dy50idk3hqifw" path="res://scripts/settings_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cdmm8ihbwmwo0" path="res://assets/settings_screen.png" id="2_bg"]
+[ext_resource type="FontFile" uid="uid://bx047l1sqf3g6" path="res://assets/augiepixel.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://uwyfrh8jbjfo" path="res://assets/Use_this_textBox.png" id="4_btn_norm"]
+[ext_resource type="Texture2D" uid="uid://bqvc2i3dmwmlj" path="res://assets/use_this_textbox_pressed_down.png" id="5_btn_press"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lineedit"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.94, 0.88, 0.76, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38, 0.22, 0.1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SettingsMenu" type="Control" unique_id=1613987595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=244354985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.09, 0.07, 1)
+
+[node name="Background" type="TextureRect" parent="." unique_id=2020317472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=772169250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 6.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=898435411]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ApiKeyBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1125598889]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ApiKeyBox" unique_id=1608569066]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+
+
+Hackatime API Key (Bearer Token):"
+
+[node name="ApiKeyInput" type="LineEdit" parent="CenterContainer/VBoxContainer/ApiKeyBox" unique_id=831821849]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.1, 0.04, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_lineedit")
+placeholder_text = "Paste your Hackatime API key here..."
+clear_button_enabled = true
+
+[node name="MusicBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1600980744]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MusicBox" unique_id=720311023]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Background Music:"
+
+[node name="MusicCheck" type="CheckButton" parent="CenterContainer/VBoxContainer/MusicBox" unique_id=198694296]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "Enabled"
+
+[node name="MusicTrackBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1600980749]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MusicTrackBox" unique_id=720311029]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Music Theme:"
+
+[node name="MusicTrackOption" type="OptionButton" parent="CenterContainer/VBoxContainer/MusicTrackBox" unique_id=198694299]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 36)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+
+[node name="SfxBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1600980745]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SfxBox" unique_id=720311024]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Sound Effects:"
+
+[node name="SfxCheck" type="CheckButton" parent="CenterContainer/VBoxContainer/SfxBox" unique_id=198694297]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "Enabled"
+
+[node name="BackgroundBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1187836868]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/BackgroundBox" unique_id=1008246893]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Background:"
+
+[node name="RiverBgCheck" type="CheckButton" parent="CenterContainer/VBoxContainer/BackgroundBox" unique_id=710524645]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "River Crossing"
+
+[node name="PetModeBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=941279081]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/PetModeBox" unique_id=1348177716]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Desktop Pet Mode:"
+
+[node name="PetModeCheck" type="CheckButton" parent="CenterContainer/VBoxContainer/PetModeBox" unique_id=94789449]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Floating"
+
+[node name="ProjectBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=859565061]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ProjectBox" unique_id=331826076]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Project Filter:"
+
+[node name="ProjectOption" type="OptionButton" parent="CenterContainer/VBoxContainer/ProjectBox" unique_id=1053850653]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 36)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+
+[node name="TutorialBox" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=417963048]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TutorialBox" unique_id=360221273]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.26, 0.16, 0.1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "Onboarding:"
+
+[node name="ReplayTutorialButton" type="TextureButton" parent="CenterContainer/VBoxContainer/TutorialBox" unique_id=1073452305]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 42)
+layout_mode = 2
+texture_normal = ExtResource("4_btn_norm")
+texture_pressed = ExtResource("5_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TutorialBox/ReplayTutorialButton" unique_id=139385729]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "Replay Tour"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=374660134]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.15, 0.15, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=898182250]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Buttons" unique_id=462072181]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(165, 55)
+layout_mode = 2
+texture_normal = ExtResource("4_btn_norm")
+texture_pressed = ExtResource("5_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Buttons/BackButton" unique_id=450379291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Buttons" unique_id=841330463]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(165, 55)
+layout_mode = 2
+texture_normal = ExtResource("4_btn_norm")
+texture_pressed = ExtResource("5_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Buttons/SaveButton" unique_id=715993358]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "Save"
+horizontal_alignment = 1
+vertical_alignment = 1

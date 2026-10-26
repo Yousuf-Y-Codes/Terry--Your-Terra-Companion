@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://c3q8fvh0j2mkl"]
+
+[ext_resource type="Script" path="res://scripts/stats_drawer.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bx047l1sqf3g6" path="res://assets/augiepixel.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://uwyfrh8jbjfo" path="res://assets/Use_this_textBox.png" id="3_btn_norm"]
+[ext_resource type="Texture2D" uid="uid://bqvc2i3dmwmlj" path="res://assets/use_this_textbox_pressed_down.png" id="4_btn_press"]
+[ext_resource type="Texture2D" uid="uid://clbffih3xj4mh" path="res://assets/Terry_Your_terra_companion_logo.png" id="5_logo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drawer"]
+content_margin_left = 22.0
+content_margin_top = 20.0
+content_margin_right = 22.0
+content_margin_bottom = 20.0
+bg_color = Color(0.968627, 0.937255, 0.858824, 0.980392)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.262745, 0.156863, 0.0784314, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 14
+
+[node name="StatsDrawer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.04, 0.02, 0.55)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(490, 360)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_drawer")
+
+[node name="VBox" type="VBoxContainer" parent="Center/Card"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderBox" type="HBoxContainer" parent="Center/Card/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LogoIcon" type="TextureRect" parent="Center/Card/VBox/HeaderBox"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("5_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="Center/Card/VBox/HeaderBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.262745, 0.156863, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+text = "WEEKLY CODING ACTIVITY"
+vertical_alignment = 1
+
+[node name="SummaryLabel" type="Label" parent="Center/Card/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42, 0.28, 0.14, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Total: 0h 00m / 10h 00m  •  Streak: 0 days"
+
+[node name="Scroll" type="ScrollContainer" parent="Center/Card/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DaysContainer" type="VBoxContainer" parent="Center/Card/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="BottomBar" type="HBoxContainer" parent="Center/Card/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="CopyReportButton" type="TextureButton" parent="Center/Card/VBox/BottomBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 34)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Center/Card/VBox/BottomBar/CopyReportButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "📋 COPY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="Center/Card/VBox/BottomBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 34)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Center/Card/VBox/BottomBar/CloseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "✕ CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1

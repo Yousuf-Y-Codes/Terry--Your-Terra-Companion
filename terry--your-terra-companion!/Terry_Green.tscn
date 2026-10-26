@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cb2pmkcwtlx6r"]
+
+[ext_resource type="Texture2D" uid="uid://khdineeqsxic" path="res://assets/terry_rose.png" id="1_x8pmt"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1303563675]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=23926183]
+
+[node name="TerryRose" type="Sprite2D" parent="." unique_id=1256101969]
+position = Vector2(-347, -1179)
+texture = ExtResource("1_x8pmt")

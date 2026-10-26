@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqa7odma2em5x"]
+
+[ext_resource type="Texture2D" uid="uid://wxvx66hrnush" path="res://assets/terry_).png" id="1_exoor"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1303563675]
+
+[node name="TERRY_Yellow" type="Sprite2D" parent="." unique_id=1762053382]
+position = Vector2(-221, -1150)
+texture = ExtResource("1_exoor")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=23926183]

@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://b83o5o42jssyd"]
+
+[ext_resource type="Script" uid="uid://uifqxhpaesb4" path="res://scripts/home_screen.gd" id="1_home"]
+[ext_resource type="Texture2D" uid="uid://pwmrvqp1jw8u" path="res://assets/APP_BACKGROUND.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://coxrdssub5qa4" path="res://assets/terry_green_emerald.png" id="3_terry_tex"]
+[ext_resource type="Script" uid="uid://cw18tpxi0hp40" path="res://scripts/terry.gd" id="4_terry_scr"]
+[ext_resource type="Texture2D" uid="uid://uwyfrh8jbjfo" path="res://assets/Use_this_textBox.png" id="5_textbox"]
+[ext_resource type="Texture2D" uid="uid://bqvc2i3dmwmlj" path="res://assets/use_this_textbox_pressed_down.png" id="6_textbox_press"]
+[ext_resource type="FontFile" uid="uid://bx047l1sqf3g6" path="res://assets/augiepixel.ttf" id="7_font"]
+[ext_resource type="Script" uid="uid://dg7viwtbbxv2g" path="res://scripts/speech_bubble.gd" id="8_bubble"]
+[ext_resource type="PackedScene" uid="uid://cx82kpwq0vlae" path="res://tutorial_overlay.tscn" id="9_tutorial"]
+[ext_resource type="PackedScene" uid="uid://c3q8fvh0j2mkl" path="res://stats_drawer.tscn" id="10_stats"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prog_bg"]
+bg_color = Color(0.85, 0.78, 0.65, 0.7)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38, 0.22, 0.1, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prog_fill"]
+bg_color = Color(0.22, 0.68, 0.32, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="HomeScreen" type="Control" unique_id=1024520126]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_home")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1821524423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Terry" type="Sprite2D" parent="." unique_id=1070979148]
+position = Vector2(210, 470)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("3_terry_tex")
+script = ExtResource("4_terry_scr")
+
+[node name="SpeechBubble" type="Control" parent="." unique_id=761880566]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 220.0
+offset_right = 650.0
+offset_bottom = 345.0
+mouse_filter = 2
+script = ExtResource("8_bubble")
+tail_tip_offset = Vector2(-55, 160)
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeechBubble" unique_id=1852569545]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="MessageLabel" type="Label" parent="SpeechBubble/MarginContainer" unique_id=1599749212]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 23
+text = "ON TRACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SettingsButton" type="TextureButton" parent="." unique_id=1047419672]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -215.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 85.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_textbox")
+texture_pressed = ExtResource("6_textbox_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SettingsButton" unique_id=601170982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 22
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopLeftHUD" type="Control" parent="." unique_id=922218978]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 434.0
+offset_bottom = 195.0
+
+[node name="HudBox" type="TextureRect" parent="TopLeftHUD" unique_id=1689276953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -23.0
+offset_right = 29.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_textbox")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Margin" type="MarginContainer" parent="TopLeftHUD/HudBox" unique_id=667355087]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="TopLeftHUD/HudBox/Margin" unique_id=196281763]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="TopLeftHUD/HudBox/Margin/VBox" unique_id=189811786]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 15
+text = "Connecting to Hackatime..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TodayLabel" type="Label" parent="TopLeftHUD/HudBox/Margin/VBox" unique_id=1685324040]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 19
+text = "TODAY: 0h 00m / 1h 30m"
+horizontal_alignment = 1
+
+[node name="TodayProgressBar" type="ProgressBar" parent="TopLeftHUD/HudBox/Margin/VBox" unique_id=1234567891]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_prog_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_prog_fill")
+show_percentage = false
+
+[node name="WeekLabel" type="Label" parent="TopLeftHUD/HudBox/Margin/VBox" unique_id=716005256]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 19
+text = "WEEK:  0h 00m / 10h 00m"
+horizontal_alignment = 1
+
+[node name="WeekProgressBar" type="ProgressBar" parent="TopLeftHUD/HudBox/Margin/VBox" unique_id=1234567892]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_prog_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_prog_fill")
+show_percentage = false
+
+[node name="TimeLeftLabel" type="Label" parent="TopLeftHUD/HudBox/Margin/VBox" unique_id=1116200587]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.22, 0.1, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 14
+text = "Left: --"
+horizontal_alignment = 1
+
+[node name="StatsDrawer" parent="." unique_id=987216544 instance=ExtResource("10_stats")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="TutorialOverlay" parent="." unique_id=987216543 instance=ExtResource("9_tutorial")]
+unique_name_in_owner = true
+layout_mode = 1

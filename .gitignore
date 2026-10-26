@@ -1,0 +1,12 @@
+# Compiled application binaries (stored in GitHub Releases)
+*.exe
+*.x86_64
+
+# Godot engine cache
+.godot/
+/android/
+
+# Python virtual environment & cache
+Terry/.venv/
+**/__pycache__/
+*.pyc

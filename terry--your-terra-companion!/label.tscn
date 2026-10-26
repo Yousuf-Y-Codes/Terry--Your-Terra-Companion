@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c1w271h2yt0rh"]
+
+[node name="Label" type="Label" unique_id=771246691]
+offset_left = 37.0
+offset_right = 1153.0
+offset_bottom = 282.0
+text = "hello there twin?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554645882]
+position = Vector2(519, 192)
+scale = Vector2(0.26018518, 0.27083334)

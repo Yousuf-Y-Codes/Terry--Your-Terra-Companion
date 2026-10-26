@@ -1,0 +1,374 @@
+[gd_scene format=3 uid="uid://cx82kpwq0vlae"]
+
+[ext_resource type="Script" path="res://scripts/tutorial_overlay.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bx047l1sqf3g6" path="res://assets/augiepixel.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://uwyfrh8jbjfo" path="res://assets/Use_this_textBox.png" id="3_btn_norm"]
+[ext_resource type="Texture2D" uid="uid://bqvc2i3dmwmlj" path="res://assets/use_this_textbox_pressed_down.png" id="4_btn_press"]
+[ext_resource type="Texture2D" uid="uid://clbffih3xj4mh" path="res://assets/Terry_Your_terra_companion_logo.png" id="5_logo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.968627, 0.937255, 0.858824, 0.980392)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.262745, 0.156863, 0.0784314, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.980392, 0.952941, 0.882353, 0.980392)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.262745, 0.156863, 0.0784314, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 8
+
+[node name="TutorialOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="WelcomeModal" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(500, 260)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -130.0
+offset_right = 250.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="Margin" type="MarginContainer" parent="WelcomeModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 22
+
+[node name="VBox" type="VBoxContainer" parent="WelcomeModal/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LogoIcon" type="TextureRect" parent="WelcomeModal/Margin/VBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="WelcomeModal/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "Welcome to Terry!"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="WelcomeModal/Margin/VBox"]
+custom_minimum_size = Vector2(440, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 19
+text = "Would you like a quick interactive tour to see all of Terry's features?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="WelcomeModal/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="StartTourButton" type="TextureButton" parent="WelcomeModal/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(175, 52)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="WelcomeModal/Margin/VBox/Buttons/StartTourButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "Start Tour"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkipTourButton" type="TextureButton" parent="WelcomeModal/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(135, 52)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="WelcomeModal/Margin/VBox/Buttons/SkipTourButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.35, 0.22, 0.12, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 19
+text = "Skip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TourCard" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(460, 240)
+layout_mode = 0
+offset_left = 260.0
+offset_top = 150.0
+offset_right = 720.0
+offset_bottom = 390.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="TourCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="TourCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StepLabel" type="Label" parent="TourCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.38, 0.16, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 15
+text = "STEP 1 OF 6"
+
+[node name="TitleLabel" type="Label" parent="TourCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 23
+text = "Meet Terry!"
+
+[node name="DescLabel" type="Label" parent="TourCard/Margin/VBox"]
+custom_minimum_size = Vector2(416, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28, 0.16, 0.06, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 17
+text = "Terry is your personal companion to help you conquer your Hackatime weekly coding quota and keep you accountable for your goals!"
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="TourCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="PrevButton" type="TextureButton" parent="TourCard/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(105, 42)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TourCard/Margin/VBox/Buttons/PrevButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="TourCard/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(120, 42)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TourCard/Margin/VBox/Buttons/NextButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Next"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="TourCard/Margin/VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SkipButton" type="TextureButton" parent="TourCard/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(95, 42)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TourCard/Margin/VBox/Buttons/SkipButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.4, 0.25, 0.14, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 17
+text = "Skip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinishModal" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(520, 270)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -135.0
+offset_right = 260.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="Margin" type="MarginContainer" parent="FinishModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 22
+
+[node name="VBox" type="VBoxContainer" parent="FinishModal/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LogoIcon" type="TextureRect" parent="FinishModal/Margin/VBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="FinishModal/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "You're All Set!"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="FinishModal/Margin/VBox"]
+custom_minimum_size = Vector2(460, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 19
+text = "Terry is ready to accompany your coding journey! Would you like to open Settings now to paste your Hackatime API key?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="FinishModal/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="FinishModal/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(190, 52)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="FinishModal/Margin/VBox/Buttons/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.24, 0.12, 0.04, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "Open Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoneButton" type="TextureButton" parent="FinishModal/Margin/VBox/Buttons"]
+custom_minimum_size = Vector2(130, 52)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_norm")
+texture_pressed = ExtResource("4_btn_press")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="FinishModal/Margin/VBox/Buttons/DoneButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.35, 0.22, 0.12, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 19
+text = "Done"
+horizontal_alignment = 1
+vertical_alignment = 1
